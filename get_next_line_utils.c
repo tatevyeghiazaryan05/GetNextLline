@@ -76,12 +76,34 @@ char	*ft_strjoin(char const  *s1, char const *s2)
 	ft_strlcat(new_string,s2, len_s1+ len_s2 + 1);
 	return (new_string);
 }
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	string_len;	
+	char	*sub;
+
+	if (!s)
+		return (NULL);
+	string_len = ft_strlen(s);
+	if (start >= string_len)
+	{
+		sub = (char *)malloc(1);
+        	if (!sub)
+            		return (NULL);
+        	sub[0] = '\0';
+        		return (sub);
+	}
+	if (len + start > string_len)
+               len = string_len - start;
+	sub = (char *)malloc(len + 1);
+	if (!sub)
+		return (NULL);
+	ft_strlcpy(sub, s + start, len + 1);
+	return (sub);	
+}
 
 int main() {
     char *s1 = "Hello";
     char *s2 = "World";
-    //printf("%d",ft_strlen(s1));
-    //printf("%s", ft_strchar(s1,'o'));
     printf("%s", ft_strjoin(s1, s2));
     return (0);
 }
