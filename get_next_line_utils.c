@@ -1,6 +1,4 @@
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include "get_next_line.h"
 
 size_t  ft_strlen(const char *s)
 {
@@ -99,11 +97,4 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	ft_strlcpy(sub, s + start, len + 1);
 	return (sub);	
-}
-
-int main() {
-    char *s1 = "Hello";
-    char *s2 = "World";
-    printf("%s", ft_strjoin(s1, s2));
-    return (0);
 }
